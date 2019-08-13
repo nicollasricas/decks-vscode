@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>com.streamdeck-vscode.terminal Property Inspector</title>
+    <link rel="stylesheet" href="css/sdpi.css" />
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-item" id="shell">
+            <div class="sdpi-item-label">Shell</div>
+            <select class="sdpi-item-value select">
+                <option value="powershell">PowerShell</option>
+                <option value="cmd">CMD</option>
+                <option value="bash">Bash</option>
+                <option value="docker">Docker</option>
+                <option value="npm">NPM</option>
+            </select>
+        </div>
+
+        <div type="checkbox" class="sdpi-item" id="preserveFocus">
+            <div class="sdpi-item-label">Preserve Focus</div>
+            <div class="sdpi-item-value">
+                <div class="sdpi-item-child">
+                    <input id="preserve-focus" type="checkbox" value="true" />
+                    <label for="preserve-focus" class="sdpi-item-label">
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sdpi-info-label hidden" style="top: -1000;" value=""></div>
+    <script src="js/common.js"></script>
+    <script src="js/common_pi.js"></script>
+    <script src="js/index_pi.js"></script>
+</body>
+</html>

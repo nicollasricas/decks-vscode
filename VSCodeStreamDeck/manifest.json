@@ -1,0 +1,49 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/Code",
+      "Name": "Terminal",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "Tooltip": "Create terminal",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/Terminal.html",
+      "UUID": "com.nicollasr.vscode.createTerminal"
+    },
+    {
+      "Icon": "Images/Code",
+      "Name": "Terminal Command",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "Tooltip": "Execute an command in the active terminal",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
+      "UUID": "com.nicollasr.vscode.terminalCommand"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Nicollas Ricas",
+  "CodePath": "com.nicollasr.vscode",
+  "Description": "Control Visual Studio Code from your Stream Deck.",
+  "Name": "Visual Studio Code",
+  "Icon": "Images/Code",
+  "Category": "Visual Studio Code",
+  "CategoryIcon": "Images/Code",
+  "URL": "https://www.github.com/nicollasricas/streamdeck-vscode",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
+}

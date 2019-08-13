@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSCodeStreamDeck", "VSCodeStreamDeck\VSCodeStreamDeck.csproj", "{62C91251-35BC-4394-AAFA-7D2C061CE374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E27D23F6-CF52-4D88-8F7E-3E74FE0EED9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EE6799E-9A01-4E5E-B696-5922F9ADD366}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		postbuild.ps1 = postbuild.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{6840FF3F-FDB4-4185-AE02-AB8B1FFACFF6}"
+	ProjectSection(SolutionItems) = preProject
+		tools\DistributionTool.exe = tools\DistributionTool.exe
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62C91251-35BC-4394-AAFA-7D2C061CE374} = {E27D23F6-CF52-4D88-8F7E-3E74FE0EED9D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {938C98DD-C4B4-4EAB-8047-CA688C5F7C28}
+	EndGlobalSection
+EndGlobal
