@@ -1,4 +1,5 @@
 ﻿using BarRaider.SdTools;
+using Newtonsoft.Json;
 using VSCodeStreamDeck.Requests;
 using VSCodeStreamDeck.Settings;
 
@@ -13,7 +14,9 @@ namespace VSCodeStreamDeck.Keys
 
         public override void KeyPressed(KeyPayload payload)
         {
-            VSServer.Current?.Send(new CreateTerminalRequest(keySettings.PreserveFocus));
+            base.KeyPressed(payload);
+
+            MessageServer.CurrentClient?.Send(CreateRequest("create-terminal-request", keySettings));
         }
     }
 }

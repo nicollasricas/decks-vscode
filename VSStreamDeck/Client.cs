@@ -4,12 +4,14 @@ using VSCodeStreamDeck.Requests;
 
 namespace VSCodeStreamDeck
 {
-    public class VSClient
+    public class Client
     {
         private readonly IWebSocketConnection socket;
 
-        public VSClient(IWebSocketConnection socket) => this.socket = socket;
+        public Client(IWebSocketConnection socket) => this.socket = socket;
 
         public void Send(Request request) => socket.Send(JsonConvert.SerializeObject(request));
+
+        public void Send(string request) => socket.Send(request);
     }
 }

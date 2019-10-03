@@ -1,4 +1,7 @@
 ﻿using BarRaider.SdTools;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using VSCodeStreamDeck.Requests;
 using VSCodeStreamDeck.Settings;
 
 namespace VSCodeStreamDeck.Keys
@@ -12,6 +15,9 @@ namespace VSCodeStreamDeck.Keys
 
         public override void KeyPressed(KeyPayload payload)
         {
+            base.KeyPressed(payload);
+
+            MessageServer.CurrentClient?.Send(CreateRequest("terminal-command-request", keySettings));
         }
     }
 }

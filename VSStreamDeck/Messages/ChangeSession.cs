@@ -1,8 +1,8 @@
 ﻿namespace VSCodeStreamDeck.Messages
 {
-    public class ChangeCurrentClientMessage
+    public class ChangeSessionMessage
     {
-        public const string Id = "change-current-client";
+        public const string Id = "change-session";
 
         public string SessionId { get; set; }
     }

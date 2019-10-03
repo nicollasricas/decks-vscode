@@ -1,0 +1,51 @@
+{
+  "Actions": [
+    {
+      "Name": "VS Code : Command",
+      "Tooltip": "Command",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/Command.html",
+      "UUID": "com.nicollasr.vscode.command"
+    },
+    {
+      "Name": "VS Code : Terminal",
+      "Tooltip": "VS Code : Create terminal",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/Terminal.html",
+      "UUID": "com.nicollasr.vscode.createTerminal"
+    },
+    {
+      "Name": "VS Code : Terminal Command",
+      "Tooltip": "Execute command in the terminal",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
+      "UUID": "com.nicollasr.vscode.terminalCommand"
+    },
+    {
+      "Name": "VS : Command",
+      "Tooltip": "Execute command in the terminal",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
+      "UUID": "com.nicollasr.vscode.terminalCommandxxx"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Nicollas Ricas",
+  "CodePath": "com.nicollasr.vsstreamdeck",
+  "Description": "Enables integration with Visual Studio Code and Visual Studio 2019 from your Stream Deck.",
+  "Name": "Visual Studio Code & Visual Studio",
+  "Icon": "Images/Code",
+  "Category": "Visual Studio Code / Visual Studio",
+  "CategoryIcon": "Images/Code",
+  "URL": "https://www.github.com/nicollasricas/streamdeck-vscode",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
+}

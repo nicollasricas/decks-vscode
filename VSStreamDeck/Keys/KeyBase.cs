@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using BarRaider.SdTools;
+﻿using BarRaider.SdTools;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VSCodeStreamDeck.Settings;
 
@@ -10,22 +10,17 @@ namespace VSCodeStreamDeck.Keys
         protected PluginSettings settings;
         protected T keySettings;
 
-        private readonly SDConnection connection;
-        private readonly string keyName;
-
         public KeyBase(SDConnection connection, InitialPayload payload) : base(connection, payload)
         {
-            this.connection = connection;
-
-            keyName = GetType().Name;
-
             if (payload.Settings is null || payload.Settings.Count == 0)
             {
-                Logger.Instance.LogMessage(TracingLevel.WARN, $"No settings found for {keyName}, default applied...");
-
                 keySettings = new T();
 
-                Tools.AutoPopulateSettings(keySettings, JObject.FromObject(keySettings));
+                Connection.SetSettingsAsync(JObject.FromObject(keySettings));
+            }
+            else
+            {
+                keySettings = payload.Settings.ToObject<T>();
             }
         }
 
@@ -33,9 +28,7 @@ namespace VSCodeStreamDeck.Keys
         {
             if (payload.Settings?.Count > 0)
             {
-                Logger.Instance.LogMessage(TracingLevel.INFO, $"Received global settings into {keyName}.");
-
-                Tools.AutoPopulateSettings(settings, payload.Settings);
+                settings = payload.Settings.ToObject<PluginSettings>();
             }
         }
 
@@ -43,9 +36,7 @@ namespace VSCodeStreamDeck.Keys
         {
             if (payload.Settings?.Count > 0)
             {
-                Logger.Instance.LogMessage(TracingLevel.INFO, $"Received {keyName} settings." + payload.Settings.ToString());
-
-                Tools.AutoPopulateSettings(keySettings, payload.Settings);
+                keySettings = payload.Settings.ToObject<T>();
             }
         }
 
@@ -65,16 +56,16 @@ namespace VSCodeStreamDeck.Keys
         {
         }
 
-        public void Ok() => connection.ShowOk();
+        public void Ok() => Connection.ShowOk();
 
-        public void Fail() => connection.ShowAlert();
+        public void Fail() => Connection.ShowAlert();
 
-        public void HandleResponse(string response)
+        protected string CreateRequest(string id, object payload)
         {
-            if (string.IsNullOrEmpty(response) && settings.Feedback)
-            {
-                // do something
-            }
+            var request = JObject.FromObject(payload);
+            request.Add("id", id);
+
+            return request.ToString(Formatting.None);
         }
     }
 }

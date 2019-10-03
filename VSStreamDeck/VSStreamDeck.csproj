@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net472</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>com.nicollasr.vscode</AssemblyName>
+    <AssemblyName>com.nicollasr.vsstreamdeck</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -17,15 +17,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Config.Net" Version="4.13.7" />
+    <PackageReference Include="Config.Net.Json" Version="4.13.7" />
     <PackageReference Include="Fleck" Version="1.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="StreamDeck-Tools" Version="2.4.2" />
+    <PackageReference Include="StreamDeck-Tools" Version="2.6.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Images\Code%402x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Images\Code.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PropertyInspector\Command.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="PropertyInspector\css\caret.svg">
@@ -55,10 +63,10 @@
     <None Update="PropertyInspector\js\common.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="PropertyInspector\js\common_pi.js">
+    <None Update="PropertyInspector\js\index_pi.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="PropertyInspector\js\index_pi.js">
+    <None Update="PropertyInspector\SwitchTerminal.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="PropertyInspector\TerminalCommand.html">

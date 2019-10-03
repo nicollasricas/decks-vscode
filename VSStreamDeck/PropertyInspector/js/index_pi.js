@@ -50,8 +50,8 @@ $SD.on("connected", jsn => {
    * drawing proper highlight-colors or progressbars.
    */
 
-  console.log("connected");
-  addDynamicStyles($SD.applicationInfo.colors, "connectSocket");
+  console.log("property inspector connected", jsn);
+  //addDynamicStyles($SD.applicationInfo.colors, "connectSocket");
 
   /**
    * Current settings are passed in the JSON node
@@ -86,9 +86,7 @@ $SD.on("sendToPropertyInspector", jsn => {
   if (pl.hasOwnProperty("error")) {
     sdpiWrapper.innerHTML = `<div class="sdpi-item">
             <details class="message caution">
-            <summary class="${pl.hasOwnProperty("info") ? "pointer" : ""}">${
-      pl.error
-    }</summary>
+            <summary class="${pl.hasOwnProperty("info") ? "pointer" : ""}">${pl.error}</summary>
                 ${pl.hasOwnProperty("info") ? pl.info : ""}
             </details>
         </div>`;
@@ -108,14 +106,21 @@ const updateUI = pl => {
       const foundElement = document.querySelector(`#${e}`);
       console.log(`searching for: #${e}`, "found:", foundElement);
       if (foundElement && foundElement.type !== "file") {
-        foundElement.value = pl[e];
-        const maxl = foundElement.getAttribute("maxlength") || 50;
-        const labels = document.querySelectorAll(`[for='${foundElement.id}']`);
-        if (labels.length) {
-          for (let x of labels) {
-            x.textContent = maxl
-              ? `${foundElement.value.length}/${maxl}`
-              : `${foundElement.value.length}`;
+        if (foundElement.type === "checkbox") {
+          foundElement.checked = pl[e] === foundElement.value ? true : false;
+        } else {
+          foundElement.value = pl[e];
+        }
+
+        if (foundElement.hasAttribute("maxlength")) {
+          const maxl = foundElement.getAttribute("maxlength") || 50;
+          const labels = document.querySelectorAll(`[for='${foundElement.id}']`);
+          if (labels.length) {
+            for (let x of labels) {
+              x.textContent = maxl
+                ? `${foundElement.value.length}/${maxl}`
+                : `${foundElement.value.length}`;
+            }
           }
         }
       }
@@ -156,11 +161,7 @@ const updateUI = pl => {
  */
 
 $SD.on("piDataChanged", returnValue => {
-  console.log(
-    "%c%s",
-    "color: white; background: blue}; font-size: 15px;",
-    "piDataChanged"
-  );
+  console.log("%c%s", "color: white; background: blue}; font-size: 15px;", "piDataChanged");
   console.log(returnValue);
 
   if (returnValue.key === "clickme") {
@@ -174,10 +175,7 @@ $SD.on("piDataChanged", returnValue => {
     };
 
     if (!window.xtWindow || window.xtWindow.closed) {
-      window.xtWindow = window.open(
-        "../externalWindow.html",
-        "External Window"
-      );
+      window.xtWindow = window.open("../externalWindow.html", "External Window");
       setTimeout(() => postMessage(window.xtWindow), 200);
     } else {
       postMessage(window.xtWindow);
@@ -264,49 +262,41 @@ function sendValueToPlugin(value, prop) {
 
 function prepareDOMElements(baseElement) {
   baseElement = baseElement || document;
-  Array.from(baseElement.querySelectorAll(".sdpi-item-value")).forEach(
-    (el, i) => {
-      const elementsToClick = [
-        "BUTTON",
-        "OL",
-        "UL",
-        "TABLE",
-        "METER",
-        "PROGRESS",
-        "CANVAS"
-      ].includes(el.tagName);
-      const evt = elementsToClick ? "onclick" : onchangeevt || "onchange";
+  Array.from(baseElement.querySelectorAll(".sdpi-item-value")).forEach((el, i) => {
+    const elementsToClick = ["BUTTON", "OL", "UL", "TABLE", "METER", "PROGRESS", "CANVAS"].includes(
+      el.tagName
+    );
+    const evt = elementsToClick ? "onclick" : onchangeevt || "onchange";
 
-      /** Look for <input><span> combinations, where we consider the span as label for the input
-       * we don't use `labels` for that, because a range could have 2 labels.
-       */
-      const inputGroup = el.querySelectorAll("input + span");
-      if (inputGroup.length === 2) {
-        const offs = inputGroup[0].tagName === "INPUT" ? 1 : 0;
+    /** Look for <input><span> combinations, where we consider the span as label for the input
+     * we don't use `labels` for that, because a range could have 2 labels.
+     */
+    const inputGroup = el.querySelectorAll("input + span");
+    if (inputGroup.length === 2) {
+      const offs = inputGroup[0].tagName === "INPUT" ? 1 : 0;
+      inputGroup[offs].textContent = inputGroup[1 - offs].value;
+      inputGroup[1 - offs]["oninput"] = function() {
         inputGroup[offs].textContent = inputGroup[1 - offs].value;
-        inputGroup[1 - offs]["oninput"] = function() {
-          inputGroup[offs].textContent = inputGroup[1 - offs].value;
-        };
-      }
-      /** We look for elements which have an 'clickable' attribute
-       * we use these e.g. on an 'inputGroup' (<span><input type="range"><span>) to adjust the value of
-       * the corresponding range-control
-       */
-      Array.from(el.querySelectorAll(".clickable")).forEach((subel, subi) => {
-        subel["onclick"] = function(e) {
-          handleSdpiItemChange(e.target, subi);
-        };
-      });
-      /** Just in case the found HTML element already has an input or change - event attached,
-       * we clone it, and call it in the callback, right before the freshly attached event
-       */
-      const cloneEvt = el[evt];
-      el[evt] = function(e) {
-        if (cloneEvt) cloneEvt();
-        handleSdpiItemChange(e.target, i);
       };
     }
-  );
+    /** We look for elements which have an 'clickable' attribute
+     * we use these e.g. on an 'inputGroup' (<span><input type="range"><span>) to adjust the value of
+     * the corresponding range-control
+     */
+    Array.from(el.querySelectorAll(".clickable")).forEach((subel, subi) => {
+      subel["onclick"] = function(e) {
+        handleSdpiItemChange(e.target, subi);
+      };
+    });
+    /** Just in case the found HTML element already has an input or change - event attached,
+     * we clone it, and call it in the callback, right before the freshly attached event
+     */
+    const cloneEvt = el[evt];
+    el[evt] = function(e) {
+      if (cloneEvt) cloneEvt();
+      handleSdpiItemChange(e.target, i);
+    };
+  });
 
   /**
    * You could add a 'label' to a textares, e.g. to show the number of charactes already typed
@@ -318,9 +308,7 @@ function prepareDOMElements(baseElement) {
     if (e.targets.length) {
       let fn = () => {
         for (let x of e.targets) {
-          x.textContent = maxl
-            ? `${e.value.length}/${maxl}`
-            : `${e.value.length}`;
+          x.textContent = maxl ? `${e.value.length}/${maxl}` : `${e.value.length}`;
         }
       };
       fn();
@@ -400,10 +388,7 @@ function handleSdpiItemChange(e, idx) {
     }
   }
 
-  if (
-    sdpiItemChildren.length &&
-    ["radio", "checkbox"].includes(sdpiItemChildren[0].type)
-  ) {
+  if (sdpiItemChildren.length && ["radio", "checkbox"].includes(sdpiItemChildren[0].type)) {
     e.setAttribute("_value", e.checked); //'_value' has priority over .value
   }
   if (sdpiItemGroup && !sdpiItemChildren.length) {
@@ -452,10 +437,7 @@ function handleSdpiItemChange(e, idx) {
     const info = sdpiItem.querySelector(".sdpi-file-info");
     if (info) {
       const s = returnValue.value.split("/").pop();
-      info.textContent =
-        s.length > 28
-          ? s.substr(0, 10) + "..." + s.substr(s.length - 10, s.length)
-          : s;
+      info.textContent = s.length > 28 ? s.substr(0, 10) + "..." + s.substr(s.length - 10, s.length) : s;
     }
   }
 
@@ -501,9 +483,7 @@ function localizeUI() {
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-  document.body.classList.add(
-    navigator.userAgent.includes("Mac") ? "mac" : "win"
-  );
+  document.body.classList.add(navigator.userAgent.includes("Mac") ? "mac" : "win");
   prepareDOMElements();
   $SD.on("localizationLoaded", language => {
     localizeUI();

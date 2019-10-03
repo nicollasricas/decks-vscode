@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSCodeStreamDeck", "VSCodeStreamDeck\VSCodeStreamDeck.csproj", "{62C91251-35BC-4394-AAFA-7D2C061CE374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSStreamDeck", "VSStreamDeck\VSStreamDeck.csproj", "{62C91251-35BC-4394-AAFA-7D2C061CE374}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E27D23F6-CF52-4D88-8F7E-3E74FE0EED9D}"
 EndProject
