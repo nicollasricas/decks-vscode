@@ -1,30 +1,54 @@
 {
   "Actions": [
     {
+      "Icon": "Images/Code",
       "Name": "VS Code : Command",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
       "Tooltip": "Command",
-      "SupportedInMultiActions": true,
+      "SupportedInMultiActions": false,
       "PropertyInspectorPath": "PropertyInspector/Command.html",
       "UUID": "com.nicollasr.vscode.command"
     },
     {
+      "Icon": "Images/Code",
       "Name": "VS Code : Terminal",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
       "Tooltip": "VS Code : Create terminal",
-      "SupportedInMultiActions": true,
+      "SupportedInMultiActions": false,
       "PropertyInspectorPath": "PropertyInspector/Terminal.html",
       "UUID": "com.nicollasr.vscode.createTerminal"
     },
     {
+      "Icon": "Images/Code",
       "Name": "VS Code : Terminal Command",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
       "Tooltip": "Execute command in the terminal",
-      "SupportedInMultiActions": true,
+      "SupportedInMultiActions": false,
       "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
       "UUID": "com.nicollasr.vscode.terminalCommand"
     },
     {
+      "Icon": "Images/Code",
       "Name": "VS : Command",
       "Tooltip": "Execute command in the terminal",
-      "SupportedInMultiActions": true,
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "SupportedInMultiActions": false,
       "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
       "UUID": "com.nicollasr.vscode.terminalCommandxxx"
     }
@@ -32,10 +56,10 @@
   "SDKVersion": 2,
   "Author": "Nicollas Ricas",
   "CodePath": "com.nicollasr.vsstreamdeck",
-  "Description": "Enables integration with Visual Studio Code and Visual Studio 2019 from your Stream Deck.",
+  "Description": "Enables Stream Deck integration within Visual Studio Code and Visual Studio",
   "Name": "Visual Studio Code & Visual Studio",
   "Icon": "Images/Code",
-  "Category": "Visual Studio Code / Visual Studio",
+  "Category": "Visual Studio Code & Visual Studio",
   "CategoryIcon": "Images/Code",
   "URL": "https://www.github.com/nicollasricas/streamdeck-vscode",
   "Version": "1.0.0",

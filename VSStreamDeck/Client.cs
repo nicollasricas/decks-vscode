@@ -1,8 +1,8 @@
 ﻿using Fleck;
 using Newtonsoft.Json;
-using VSCodeStreamDeck.Requests;
+using VSStreamDeck.Requests;
 
-namespace VSCodeStreamDeck
+namespace VSStreamDeck
 {
     public class Client
     {
@@ -12,6 +12,8 @@ namespace VSCodeStreamDeck
 
         public void Send(Request request) => socket.Send(JsonConvert.SerializeObject(request));
 
-        public void Send(string request) => socket.Send(request);
+        public void Send(object data) => socket.Send(Serialize(new { id = data.GetType().Name, data = Serialize(data) }));
+
+        private string Serialize(object data) => JsonConvert.SerializeObject(data);
     }
 }

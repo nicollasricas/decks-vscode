@@ -1,9 +1,9 @@
 ﻿using BarRaider.SdTools;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using VSCodeStreamDeck.Settings;
+using VSStreamDeck.Settings;
 
-namespace VSCodeStreamDeck.Keys
+namespace VSStreamDeck.Keys
 {
     public abstract class KeyBase<T> : PluginBase where T : KeySettings, new()
     {
@@ -55,10 +55,6 @@ namespace VSCodeStreamDeck.Keys
         public override void KeyPressed(KeyPayload payload)
         {
         }
-
-        public void Ok() => Connection.ShowOk();
-
-        public void Fail() => Connection.ShowAlert();
 
         protected string CreateRequest(string id, object payload)
         {

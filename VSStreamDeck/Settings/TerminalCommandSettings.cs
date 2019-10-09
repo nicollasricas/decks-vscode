@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace VSCodeStreamDeck.Settings
+namespace VSStreamDeck.Settings
 {
     public class TerminalCommandSettings : KeySettings
     {

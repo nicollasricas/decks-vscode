@@ -1,15 +1,12 @@
 ﻿using BarRaider.SdTools;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using VSCodeStreamDeck.Requests;
-using VSCodeStreamDeck.Settings;
+using VSStreamDeck.Settings;
 
-namespace VSCodeStreamDeck.Keys
+namespace VSStreamDeck.Keys
 {
     [PluginActionId("com.nicollasr.vscode.terminalCommand")]
-    public class TerminalCommandKey : KeyBase<TerminalCommandSettings>
+    public class CodeTerminalCommandKey : KeyBase<TerminalCommandSettings>
     {
-        public TerminalCommandKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public CodeTerminalCommandKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 

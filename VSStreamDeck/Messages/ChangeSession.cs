@@ -1,9 +1,12 @@
-﻿namespace VSCodeStreamDeck.Messages
+﻿namespace VSStreamDeck.Messages
 {
-    public class ChangeSessionMessage
+    public class ChangeActiveSessionMessage
     {
-        public const string Id = "change-session";
+        public string SessionId { get; set; }
+    }
 
+    public class ActiveSessionChangedMessage
+    {
         public string SessionId { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Config.Net;
 
-namespace VSCodeStreamDeck
+namespace VSStreamDeck
 {
     public interface IProgramOptions
     {

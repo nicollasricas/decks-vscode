@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
-namespace VSCodeStreamDeck.Requests
+namespace VSStreamDeck.Requests
 {
     public abstract class Request
     {

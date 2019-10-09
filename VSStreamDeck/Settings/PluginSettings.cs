@@ -1,4 +1,4 @@
-﻿namespace VSCodeStreamDeck.Settings
+﻿namespace VSStreamDeck.Settings
 {
     public class PluginSettings
     {

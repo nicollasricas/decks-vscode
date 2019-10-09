@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace VSCodeStreamDeck.Messages
+namespace VSStreamDeck.Messages
 {
     [JsonObject]
     public class Message

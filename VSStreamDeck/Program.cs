@@ -1,7 +1,7 @@
 ﻿using BarRaider.SdTools;
 using Config.Net;
 
-namespace VSCodeStreamDeck
+namespace VSStreamDeck
 {
     internal class Program
     {
