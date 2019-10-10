@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace VSStreamDeck.Settings
+namespace VSStreamDeck.Messages
 {
-    public class CreateTerminalSettings : KeySettings
+    public class CreateTerminalMessage
     {
         [JsonProperty("preserveFocus")]
         public bool PreserveFocus { get; set; } = false;

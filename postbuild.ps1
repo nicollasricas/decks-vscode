@@ -17,6 +17,6 @@ Copy-Item -Path "$targetDir" -Destination "$pluginPath" -Force -Recurse -Contain
 
 Start-Process -FilePath "C:\Program Files\Elgato\StreamDeck\StreamDeck.exe"
 
-Remove-Item "$PSScriptRoot\$targetName.sdPlugin"
+Remove-Item "$PSScriptRoot\$targetName.streamDeckPlugin"
 
 Start-Process -FilePath "$PSScriptRoot\tools\DistributionTool.exe" -ArgumentList "-b -i `"$pluginPath`" -o `"$PSScriptRoot`"" -NoNewWindow

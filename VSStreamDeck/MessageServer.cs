@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using BarRaider.SdTools;
 using Fleck;
 using Newtonsoft.Json;
 using VSStreamDeck.Messages;
-using VSStreamDeck.Requests;
 
 namespace VSStreamDeck
 {
@@ -23,6 +19,8 @@ namespace VSStreamDeck
 
         public void Start()
         {
+            Logger.Instance.LogMessage(TracingLevel.INFO, $"Starting server {server.Location}");
+
             server.Start(connection =>
             {
                 connection.OnOpen = () => OnConnected(connection);
@@ -37,19 +35,17 @@ namespace VSStreamDeck
 
         private void HandleMessages(IWebSocketConnection connection, string rawMessage)
         {
-            var messageFingerprint = JsonConvert.DeserializeObject<Message>(rawMessage);
+            Logger.Instance.LogMessage(TracingLevel.INFO, $"Received message {rawMessage}");
 
-            if(messageFingerprint != null)
+            var message = JsonConvert.DeserializeObject<Message>(rawMessage);
+
+            if (!string.IsNullOrEmpty(message?.Data))
             {
-                var messageType = Type.GetType(messageFingerprint.Id) ?? throw new InvalidOperationException();
-
-                var messageData = JsonConvert.DeserializeObject(messageFingerprint.Data, messageType);
-
-                switch(messageData)
+                if (message.Id == nameof(ChangeActiveSessionMessage))
                 {
-                    case ChangeActiveSessionMessage changeSession when messageData is ChangeActiveSessionMessage:
-                        SetCurrentClient(connection.ConnectionInfo.Id, changeSession.SessionId);
-                        break;
+                    var changeActiveSession = JsonConvert.DeserializeObject<ChangeActiveSessionMessage>(message.Data);
+
+                    SetCurrentClient(connection.ConnectionInfo.Id, changeActiveSession.SessionId);
                 }
             }
         }
@@ -58,18 +54,10 @@ namespace VSStreamDeck
         {
             CurrentClient = clients[clientId];
 
-            var activeSessionChanged = new ActiveSessionChangedMessage()
-            {
-                SessionId = sessionId
-            };
+            var activeSessionChanged = new ActiveSessionChangedMessage(sessionId);
 
-            foreach(var client in clients)
+            foreach (var client in clients)
             {
-                if(client.Key == clientId)
-                {
-                    continue;
-                }
-
                 client.Value.Send(activeSessionChanged);
             }
         }

@@ -16,7 +16,7 @@ namespace VSStreamDeck
             StartMessageServer(options);
 
             //#if DEBUG
-            //Console.ReadKey(true);
+            //System.Console.ReadLine();
             //#endif
 
             ConnectPlugin(args);

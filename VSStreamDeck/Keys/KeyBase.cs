@@ -1,5 +1,4 @@
 ﻿using BarRaider.SdTools;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VSStreamDeck.Settings;
 
@@ -7,20 +6,20 @@ namespace VSStreamDeck.Keys
 {
     public abstract class KeyBase<T> : PluginBase where T : KeySettings, new()
     {
-        protected PluginSettings settings;
-        protected T keySettings;
+        protected PluginSettings pluginSettings;
+        protected T settings;
 
         public KeyBase(SDConnection connection, InitialPayload payload) : base(connection, payload)
         {
             if (payload.Settings is null || payload.Settings.Count == 0)
             {
-                keySettings = new T();
+                settings = new T();
 
-                Connection.SetSettingsAsync(JObject.FromObject(keySettings));
+                Connection.SetSettingsAsync(JObject.FromObject(settings));
             }
             else
             {
-                keySettings = payload.Settings.ToObject<T>();
+                settings = payload.Settings.ToObject<T>();
             }
         }
 
@@ -28,7 +27,7 @@ namespace VSStreamDeck.Keys
         {
             if (payload.Settings?.Count > 0)
             {
-                settings = payload.Settings.ToObject<PluginSettings>();
+                pluginSettings = payload.Settings.ToObject<PluginSettings>();
             }
         }
 
@@ -36,7 +35,7 @@ namespace VSStreamDeck.Keys
         {
             if (payload.Settings?.Count > 0)
             {
-                keySettings = payload.Settings.ToObject<T>();
+                settings = payload.Settings.ToObject<T>();
             }
         }
 
@@ -54,14 +53,6 @@ namespace VSStreamDeck.Keys
 
         public override void KeyPressed(KeyPayload payload)
         {
-        }
-
-        protected string CreateRequest(string id, object payload)
-        {
-            var request = JObject.FromObject(payload);
-            request.Add("id", id);
-
-            return request.ToString(Formatting.None);
         }
     }
 }

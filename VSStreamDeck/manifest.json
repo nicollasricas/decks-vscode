@@ -2,66 +2,53 @@
   "Actions": [
     {
       "Icon": "Images/Code",
-      "Name": "VS Code : Command",
+      "Name": "Execute Command",
       "States": [
         {
           "Image": "Images/Code"
         }
       ],
-      "Tooltip": "Command",
+      "Tooltip": "Executes a Visual Studio Code command with the given command identifier (Command ID).",
       "SupportedInMultiActions": false,
-      "PropertyInspectorPath": "PropertyInspector/Command.html",
-      "UUID": "com.nicollasr.vscode.command"
+      "PropertyInspectorPath": "PropertyInspector/ExecuteCommand.html",
+      "UUID": "com.nicollasr.vsstreamdeck.executeCommand"
     },
     {
       "Icon": "Images/Code",
-      "Name": "VS Code : Terminal",
+      "Name": "Create Terminal",
       "States": [
         {
           "Image": "Images/Code"
         }
       ],
-      "Tooltip": "VS Code : Create terminal",
+      "Tooltip": "Creates a terminal with the given settings.",
       "SupportedInMultiActions": false,
-      "PropertyInspectorPath": "PropertyInspector/Terminal.html",
-      "UUID": "com.nicollasr.vscode.createTerminal"
+      "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
+      "UUID": "com.nicollasr.vsstreamdeck.createTerminal"
     },
     {
       "Icon": "Images/Code",
-      "Name": "VS Code : Terminal Command",
+      "Name": "Execute Terminal Command",
       "States": [
         {
           "Image": "Images/Code"
         }
       ],
-      "Tooltip": "Execute command in the terminal",
+      "Tooltip": "Executes a terminal command.",
       "SupportedInMultiActions": false,
-      "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
-      "UUID": "com.nicollasr.vscode.terminalCommand"
-    },
-    {
-      "Icon": "Images/Code",
-      "Name": "VS : Command",
-      "Tooltip": "Execute command in the terminal",
-      "States": [
-        {
-          "Image": "Images/Code"
-        }
-      ],
-      "SupportedInMultiActions": false,
-      "PropertyInspectorPath": "PropertyInspector/TerminalCommand.html",
-      "UUID": "com.nicollasr.vscode.terminalCommandxxx"
+      "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
+      "UUID": "com.nicollasr.vsstreamdeck.executeTerminalCommand"
     }
   ],
   "SDKVersion": 2,
   "Author": "Nicollas Ricas",
   "CodePath": "com.nicollasr.vsstreamdeck",
-  "Description": "Enables Stream Deck integration within Visual Studio Code and Visual Studio",
-  "Name": "Visual Studio Code & Visual Studio",
+  "Description": "Enables Stream Deck integration with Visual Studio Code",
+  "Name": "Visual Studio Code",
   "Icon": "Images/Code",
-  "Category": "Visual Studio Code & Visual Studio",
+  "Category": "Visual Studio Code",
   "CategoryIcon": "Images/Code",
-  "URL": "https://www.github.com/nicollasricas/streamdeck-vscode",
+  "URL": "https://www.github.com/nicollasricas/vscode-streamdeck",
   "Version": "1.0.0",
   "OS": [
     {
