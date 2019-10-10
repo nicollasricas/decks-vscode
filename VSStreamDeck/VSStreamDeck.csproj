@@ -33,6 +33,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PropertyInspector\ExecuteCommand.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
