@@ -36,6 +36,12 @@
     <None Update="Images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Images\VisualStudioCode%402x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Images\VisualStudioCode.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PropertyInspector\ExecuteCommand.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
