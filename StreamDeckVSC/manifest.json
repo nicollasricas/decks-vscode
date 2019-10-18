@@ -1,0 +1,62 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/Code",
+      "Name": "Execute Command",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "Tooltip": "Executes a Visual Studio Code command with the given command identifier (Command ID).",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/ExecuteCommand.html",
+      "UUID": "com.nicollasr.streamdeckvsc.executecommand"
+    },
+    {
+      "Icon": "Images/Code",
+      "Name": "Create Terminal",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "Tooltip": "Creates a terminal with the given settings.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
+      "UUID": "com.nicollasr.streamdeckvsc.createterminal"
+    },
+    {
+      "Icon": "Images/Code",
+      "Name": "Execute Terminal Command",
+      "States": [
+        {
+          "Image": "Images/Code"
+        }
+      ],
+      "Tooltip": "Executes a terminal command.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
+      "UUID": "com.nicollasr.streamdeckvsc.executeterminalcommand"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Nicollas R.",
+  "CodePath": "com.nicollasr.streamdeckvsc",
+  "Description": "Enables Stream Deck integration with Visual Studio Code. This plugin requires Visual Studio Code extension `Stream Deck for Visual Studio Code`.",
+  "Name": "Visual Studio Code",
+  "Icon": "Images/Code",
+  "Category": "Visual Studio Code",
+  "CategoryIcon": "Images/Code",
+  "URL": "https://github.com/nicollasricas/streamdeckvsc",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "4.1"
+  }
+}
