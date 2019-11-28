@@ -75,6 +75,9 @@
     <None Update="PropertyInspector\js\index_pi.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="PropertyInspector\js\pi.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PropertyInspector\SwitchTerminal.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

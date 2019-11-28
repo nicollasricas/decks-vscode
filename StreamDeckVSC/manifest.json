@@ -49,7 +49,7 @@
   "Category": "Visual Studio Code",
   "CategoryIcon": "Images/VisualStudioCode",
   "URL": "https://github.com/nicollasricas/streamdeckvsc",
-  "Version": "1.0.1",
+  "Version": "1.0.2",
   "OS": [
     {
       "Platform": "windows",
