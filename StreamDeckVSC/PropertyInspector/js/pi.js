@@ -51,7 +51,7 @@ function registerChangeDetection() {
 
 function getInputs() {
   return Array.from(document.querySelectorAll(".sdpi-item-value")).map(element => {
-    if (element.tagName !== "INPUT") {
+    if (element.tagName !== "INPUT" && element.tagName !== "TEXTAREA") {
       return element.querySelector("input");
     }
 

@@ -15,7 +15,11 @@ namespace StreamDeckVSC.Keys
         {
             base.KeyPressed(payload);
 
-            MessageServer.CurrentClient?.Send(new ExecuteCommandMessage(settings.Command));
+            MessageServer.CurrentClient?.Send(new ExecuteCommandMessage()
+            {
+                Command = settings.Command,
+                Arguments = settings.Arguments
+            });
         }
     }
 }

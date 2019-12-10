@@ -7,8 +7,8 @@ namespace StreamDeckVSC.Messages
         [JsonProperty("command")]
         public string Command { get; set; }
 
-        //[JsonProperty("arguments")]
-        //public string Arguments { get; set; }
+        [JsonProperty("arguments")]
+        public string Arguments { get; set; }
 
         public ExecuteCommandMessage()
         {

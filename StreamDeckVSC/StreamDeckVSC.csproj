@@ -42,6 +42,9 @@
     <None Update="Images\VisualStudioCode.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="PropertyInspector\ChangeLanguage.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PropertyInspector\ExecuteCommand.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
