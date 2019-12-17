@@ -90,11 +90,14 @@
     <None Update="PropertyInspector\CreateTerminal.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="PropertyInspector\InsertSnippet.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell -ExecutionPolicy Unrestricted -File &quot;$(SolutionDir)postbuild.ps1&quot; &quot;$(TargetName),$(ProjectDir)$(OutDir)\&quot;" />
+    <Exec Command="if $(ConfigurationName) == Release powershell -ExecutionPolicy Unrestricted -File &quot;$(SolutionDir)postbuild.ps1&quot; &quot;$(TargetName),$(ProjectDir)$(OutDir)\&quot;" />
   </Target>
 </Project>

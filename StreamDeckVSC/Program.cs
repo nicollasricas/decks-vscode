@@ -1,4 +1,7 @@
-﻿using BarRaider.SdTools;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using BarRaider.SdTools;
 using Config.Net;
 
 namespace StreamDeckVSC
@@ -12,6 +15,8 @@ namespace StreamDeckVSC
             var options = new ConfigurationBuilder<IProgramOptions>()
                 .UseJsonConfig()
                 .Build();
+
+            //InstallExtensionIfNot();
 
             StartMessageServer(options);
 
@@ -33,5 +38,22 @@ namespace StreamDeckVSC
         }
 
         private static void StopMessageServer() => messageServer?.Dispose();
+
+        private static void InstallExtensionIfNot()
+        {
+            Task.Run(() =>
+            {
+                if(IsExtensionInstalled())
+                {
+                    InstallExtension();
+                }
+            });
+        }
+
+        private static bool IsExtensionInstalled() => true;
+
+        private static void InstallExtension()
+        {
+        }
     }
 }

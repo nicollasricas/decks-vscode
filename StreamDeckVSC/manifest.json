@@ -15,6 +15,32 @@
     },
     {
       "Icon": "Images/VisualStudioCode",
+      "Name": "Execute Terminal Command",
+      "States": [
+        {
+          "Image": "Images/VisualStudioCode"
+        }
+      ],
+      "Tooltip": "Executes a terminal command.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
+      "UUID": "com.nicollasr.streamdeckvsc.executeterminalcommand"
+    },
+    {
+      "Icon": "Images/VisualStudioCode",
+      "Name": "Insert Snippet",
+      "States": [
+        {
+          "Image": "Images/VisualStudioCode"
+        }
+      ],
+      "Tooltip": "Insert snippet.",
+      "SupportedInMultiActions": false,
+      "PropertyInspectorPath": "PropertyInspector/InsertSnippet.html",
+      "UUID": "com.nicollasr.streamdeckvsc.insertsnippet"
+    },
+    {
+      "Icon": "Images/VisualStudioCode",
       "Name": "Change Language",
       "States": [
         {
@@ -38,19 +64,6 @@
       "SupportedInMultiActions": false,
       "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
       "UUID": "com.nicollasr.streamdeckvsc.createterminal"
-    },
-    {
-      "Icon": "Images/VisualStudioCode",
-      "Name": "Execute Terminal Command",
-      "States": [
-        {
-          "Image": "Images/VisualStudioCode"
-        }
-      ],
-      "Tooltip": "Executes a terminal command.",
-      "SupportedInMultiActions": false,
-      "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
-      "UUID": "com.nicollasr.streamdeckvsc.executeterminalcommand"
     }
   ],
   "SDKVersion": 2,
@@ -62,7 +75,7 @@
   "Category": "Visual Studio Code",
   "CategoryIcon": "Images/VisualStudioCode",
   "URL": "https://github.com/nicollasricas/streamdeckvsc",
-  "Version": "2.0.2",
+  "Version": "3.0.2",
   "OS": [
     {
       "Platform": "windows",
