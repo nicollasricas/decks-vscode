@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using BarRaider.SdTools;
 using Config.Net;
 
@@ -13,16 +12,21 @@ namespace StreamDeckVSC
         private static void Main(string[] args)
         {
             var options = new ConfigurationBuilder<IProgramOptions>()
-                .UseJsonConfig()
+                .UseIniFile("settings.ini")
                 .Build();
 
-            //InstallExtensionIfNot();
+            if (!options.RequirementNotified)
+            {
+                InstallRequirements();
+
+                options.RequirementNotified = true;
+            }
 
             StartMessageServer(options);
 
-            //#if DEBUG
+            #if DEBUG
             //System.Console.ReadLine();
-            //#endif
+            #endif
 
             ConnectPlugin(args);
 
@@ -39,21 +43,21 @@ namespace StreamDeckVSC
 
         private static void StopMessageServer() => messageServer?.Dispose();
 
-        private static void InstallExtensionIfNot()
+        private static void InstallRequirements()
         {
-            Task.Run(() =>
+            try
             {
-                if(IsExtensionInstalled())
+                Process.Start(new ProcessStartInfo()
                 {
-                    InstallExtension();
-                }
-            });
-        }
-
-        private static bool IsExtensionInstalled() => true;
-
-        private static void InstallExtension()
-        {
+                    FileName = "manage.exe",
+                    CreateNoWindow = false,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, ex.ToString());
+            }
         }
     }
 }

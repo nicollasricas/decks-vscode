@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{6840FF3F
 		tools\DistributionTool.exe = tools\DistributionTool.exe
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamDeckVSC.Manage", "StreamDeckVSC.Manage\StreamDeckVSC.Manage.csproj", "{4224C4E8-CA9B-475D-91B4-4A58184ED554}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,12 +32,17 @@ Global
 		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C91251-35BC-4394-AAFA-7D2C061CE374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4224C4E8-CA9B-475D-91B4-4A58184ED554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4224C4E8-CA9B-475D-91B4-4A58184ED554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4224C4E8-CA9B-475D-91B4-4A58184ED554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4224C4E8-CA9B-475D-91B4-4A58184ED554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{62C91251-35BC-4394-AAFA-7D2C061CE374} = {E27D23F6-CF52-4D88-8F7E-3E74FE0EED9D}
+		{4224C4E8-CA9B-475D-91B4-4A58184ED554} = {E27D23F6-CF52-4D88-8F7E-3E74FE0EED9D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {938C98DD-C4B4-4EAB-8047-CA688C5F7C28}
