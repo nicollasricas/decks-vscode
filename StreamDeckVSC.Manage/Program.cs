@@ -26,6 +26,9 @@ namespace StreamDeckVSC.Manage
             }
             catch
             {
+                Console.WriteLine("An error has occurred during the extension installation process.");
+                Console.WriteLine("Make sure you have the `Stream Deck for Visual Studio Code` extension installed on VS Code or it won't work.");
+                Console.WriteLine("You can find it in the VS Code marketplace.");
             }
         }
     }

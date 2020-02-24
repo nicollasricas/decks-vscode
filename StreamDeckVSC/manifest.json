@@ -9,7 +9,7 @@
         }
       ],
       "Tooltip": "Executes a Visual Studio Code command with the given command identifier (Command ID).",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteCommand.html",
       "UUID": "com.nicollasr.streamdeckvsc.executecommand"
     },
@@ -22,7 +22,7 @@
         }
       ],
       "Tooltip": "Executes a terminal command.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ExecuteTerminalCommand.html",
       "UUID": "com.nicollasr.streamdeckvsc.executeterminalcommand"
     },
@@ -35,7 +35,7 @@
         }
       ],
       "Tooltip": "Insert snippet.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/InsertSnippet.html",
       "UUID": "com.nicollasr.streamdeckvsc.insertsnippet"
     },
@@ -48,7 +48,7 @@
         }
       ],
       "Tooltip": "Change the language that is associated with the given document.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/ChangeLanguage.html",
       "UUID": "com.nicollasr.streamdeckvsc.changelanguage"
     },
@@ -61,7 +61,7 @@
         }
       ],
       "Tooltip": "Creates a terminal with the given settings.",
-      "SupportedInMultiActions": false,
+      "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
       "UUID": "com.nicollasr.streamdeckvsc.createterminal"
     }
@@ -75,7 +75,7 @@
   "Category": "Visual Studio Code",
   "CategoryIcon": "Images/VisualStudioCode",
   "URL": "https://github.com/nicollasricas/streamdeckvsc",
-  "Version": "3.0.2",
+  "Version": "3.1.2",
   "OS": [
     {
       "Platform": "windows",
