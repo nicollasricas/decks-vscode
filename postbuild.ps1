@@ -16,7 +16,3 @@ Remove-Item -Path "$pluginPath" -Force -Recurse
 Copy-Item -Path "$targetDir" -Destination "$pluginPath" -Force -Recurse -Container: $false -Exclude "*.pdb"
 
 Start-Process -FilePath "C:\Program Files\Elgato\StreamDeck\StreamDeck.exe"
-
-Remove-Item "$PSScriptRoot\$targetName.streamDeckPlugin"
-
-Start-Process -FilePath "$PSScriptRoot\tools\DistributionTool.exe" -ArgumentList "-b -i `"$pluginPath`" -o `"$PSScriptRoot`"" -NoNewWindow

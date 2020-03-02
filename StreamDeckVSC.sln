@@ -10,7 +10,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EE6799E-9A01-4E5E-B696-5922F9ADD366}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		CHANGELOG.md = CHANGELOG.md
+		export.ps1 = export.ps1
+		LICENSE = LICENSE
 		postbuild.ps1 = postbuild.ps1
 		README.md = README.md
 	EndProjectSection
@@ -20,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{6840FF3F
 		tools\DistributionTool.exe = tools\DistributionTool.exe
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamDeckVSC.Manage", "StreamDeckVSC.Manage\StreamDeckVSC.Manage.csproj", "{4224C4E8-CA9B-475D-91B4-4A58184ED554}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamDeckVSC.Manage", "StreamDeckVSC.Manage\StreamDeckVSC.Manage.csproj", "{4224C4E8-CA9B-475D-91B4-4A58184ED554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

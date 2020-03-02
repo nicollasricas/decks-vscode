@@ -75,7 +75,7 @@
   "Category": "Visual Studio Code",
   "CategoryIcon": "Images/VisualStudioCode",
   "URL": "https://github.com/nicollasricas/streamdeckvsc",
-  "Version": "3.1.2",
+  "Version": "4.1.2",
   "OS": [
     {
       "Platform": "windows",
