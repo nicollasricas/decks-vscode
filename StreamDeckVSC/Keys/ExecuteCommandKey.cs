@@ -4,7 +4,7 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    [PluginActionId("com.nicollasr.streamdeckvsc.executecommand")]
+    [PluginActionId(Program.UUID + ".executecommand")]
     public class ExecuteCommandKey : KeyBase<ExecuteCommandSettings>
     {
         public ExecuteCommandKey(SDConnection connection, InitialPayload payload) : base(connection, payload)

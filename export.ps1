@@ -1,10 +1,12 @@
 $targets = "win10-x64", "osx-x64"
 $binPath = ".\StreamDeckVSC/bin/Release/netcoreapp3.1"
-$pluginName = "com.nicollasr.streamdeckvsc.sdPlugin"
+$identifier = "com.nicollasr.streamdeckvsc"
+$osxIdentifier = "$identifier.mac"
+$pluginName = "$identifier.sdPlugin"
 
 function clean($target) {
     dotnet clean -c Release -r $target
-    Remove-Item ".\com.nicollasr.streamdeckvsc.$target.streamDeckPlugin" -Force
+    Remove-Item ".\$identifier.$target.streamDeckPlugin" -Force
 }
 
 function build($target) {
@@ -21,7 +23,7 @@ function pack($target) {
 
     Remove-Item "$binPath/$pluginName" -Force -Recurse
 
-    Rename-Item ".\com.nicollasr.streamdeckvsc.streamDeckPlugin" "com.nicollasr.streamdeckvsc.$target.streamDeckPlugin"
+    Rename-Item ".\$identifier.streamDeckPlugin" "$identifier.$target.streamDeckPlugin"
 }
 
 function updateManifest($target) {
@@ -29,8 +31,13 @@ function updateManifest($target) {
         $manifestPath = "$binPath/$target/manifest.json"
 
         $manifest = Get-Content $manifestPath -raw | ConvertFrom-Json
+        $manifest.CodePath = "$osxIdentifier"
         $manifest.OS[0].Platform = "mac"
         $manifest.OS[0].MinimumVersion = "10.11"
+
+        foreach($action in $manifest.Actions) {
+            $action.UUID = $action.UUID -replace "$identifier","$osxIdentifier"
+        }
 
         $manifest | ConvertTo-Json -Depth 32 -Compress | Set-Content $manifestPath
     }
