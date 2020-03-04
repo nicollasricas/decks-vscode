@@ -29,9 +29,27 @@ namespace StreamDeckVSC
             });
         }
 
-        private void OnDisconnected(IWebSocketConnection connection) => clients.Remove(connection.ConnectionInfo.Id);
+        private void OnDisconnected(IWebSocketConnection connection)
+        {
+            clients.Remove(connection.ConnectionInfo.Id);
 
-        private void OnConnected(IWebSocketConnection connection) => clients[connection.ConnectionInfo.Id] = new Client(connection);
+            ActivateConnectedClient(connection);
+        }
+
+        private void OnConnected(IWebSocketConnection connection)
+        {
+            clients[connection.ConnectionInfo.Id] = new Client(connection);
+
+            ActivateConnectedClient(connection);
+        }
+
+        private void ActivateConnectedClient(IWebSocketConnection connection)
+        {
+            if (clients.Count == 1 && connection.ConnectionInfo.Headers.TryGetValue("X-VSSessionID", out var sessionId))
+            {
+                SetCurrentClient(connection.ConnectionInfo.Id, sessionId);
+            }
+        }
 
         private void HandleMessages(IWebSocketConnection connection, string rawMessage)
         {
