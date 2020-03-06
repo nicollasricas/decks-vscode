@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using BarRaider.SdTools;
+﻿using BarRaider.SdTools;
 using Config.Net;
 
 namespace StreamDeckVSC
@@ -14,13 +12,6 @@ namespace StreamDeckVSC
             var options = new ConfigurationBuilder<IProgramOptions>()
                 .UseIniFile("settings.ini")
                 .Build();
-
-            if (!options.RequirementNotified)
-            {
-                InstallRequirements();
-
-                options.RequirementNotified = true;
-            }
 
             StartMessageServer(options);
 
@@ -42,22 +33,5 @@ namespace StreamDeckVSC
         }
 
         private static void StopMessageServer() => messageServer?.Dispose();
-
-        private static void InstallRequirements()
-        {
-            try
-            {
-                Process.Start(new ProcessStartInfo()
-                {
-                    FileName = "manage.exe",
-                    CreateNoWindow = false,
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                Logger.Instance.LogMessage(TracingLevel.ERROR, ex.ToString());
-            }
-        }
     }
 }

@@ -17,9 +17,6 @@
     <PackageReference Include="StreamDeck-Tools" Version="2.6.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StreamDeckVSC.Manage\StreamDeckVSC.Manage.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Images\Code%402x.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

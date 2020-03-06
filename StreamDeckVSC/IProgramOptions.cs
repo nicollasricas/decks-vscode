@@ -9,8 +9,5 @@ namespace StreamDeckVSC
 
         [Option(Alias = "general.port", DefaultValue = 48969)]
         int Port { get; }
-
-        [Option(Alias = "general.requirementNotified")]
-        bool RequirementNotified { get; set; }
     }
 }
