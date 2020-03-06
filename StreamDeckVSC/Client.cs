@@ -8,6 +8,8 @@ namespace StreamDeckVSC
     {
         private readonly IWebSocketConnection socket;
 
+        public IWebSocketConnection Connection => socket;
+
         public Client(IWebSocketConnection socket) => this.socket = socket;
 
         public void Send(object data) => socket.Send(Serialize(new Message { Id = data.GetType().Name, Data = Serialize(data) }));

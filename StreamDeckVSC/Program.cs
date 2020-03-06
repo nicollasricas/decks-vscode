@@ -9,12 +9,6 @@ namespace StreamDeckVSC
     {
         private static MessageServer messageServer;
 
-#if OSXX64
-        public const string UUID = "com.nicollasr.streamdeckvsc.mac";
-#else
-        public const string UUID = "com.nicollasr.streamdeckvsc";
-#endif
-
         private static void Main(string[] args)
         {
             var options = new ConfigurationBuilder<IProgramOptions>()

@@ -340,5 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # sd targets
-com.nicollasr.streamdeckvsc.osx-x64.streamDeckPlugin
-com.nicollasr.streamdeckvsc.win10-x64.streamDeckPlugin
+*.streamDeckPlugin

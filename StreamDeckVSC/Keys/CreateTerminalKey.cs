@@ -4,7 +4,7 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    [PluginActionId(Program.UUID + ".createterminal")]
+    [PluginActionId("com.nicollasr.streamdeckvsc.createterminal")]
     public class CreateTerminalKey : KeyBase<CreateTerminalSettings>
     {
         public CreateTerminalKey(SDConnection connection, InitialPayload payload) : base(connection, payload)

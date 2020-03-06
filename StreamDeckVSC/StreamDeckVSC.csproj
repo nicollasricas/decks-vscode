@@ -10,10 +10,6 @@
     <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <RuntimeIdentifiers>win10-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64'">
-    <AssemblyName>com.nicollasr.streamdeckvsc.mac</AssemblyName>
-    <DefineConstants>OSXX64</DefineConstants>
-  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Config.Net" Version="4.13.7" />
     <PackageReference Include="Fleck" Version="1.1.0" />

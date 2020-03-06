@@ -4,7 +4,7 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    [PluginActionId(Program.UUID + ".changelanguage")]
+    [PluginActionId("com.nicollasr.streamdeckvsc.changelanguage")]
     public class ChangeLanguageKey : KeyBase<ChangeLanguageSettings>
     {
         public ChangeLanguageKey(SDConnection connection, InitialPayload payload) : base(connection, payload)

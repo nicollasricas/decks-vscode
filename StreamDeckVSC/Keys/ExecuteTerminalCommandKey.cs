@@ -4,7 +4,7 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    [PluginActionId(Program.UUID + ".executeterminalcommand")]
+    [PluginActionId("com.nicollasr.streamdeckvsc.executeterminalcommand")]
     public class ExecuteTerminalCommandKey : KeyBase<TerminalCommandSettings>
     {
         public ExecuteTerminalCommandKey(SDConnection connection, InitialPayload payload) : base(connection, payload)

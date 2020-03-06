@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BarRaider.SdTools;
 using Fleck;
 using Newtonsoft.Json;
@@ -25,7 +26,7 @@ namespace StreamDeckVSC
             {
                 connection.OnOpen = () => OnConnected(connection);
                 connection.OnClose = () => OnDisconnected(connection);
-                connection.OnMessage = message => HandleMessages(connection, message);
+                connection.OnMessage = message => OnMessage(connection, message);
             });
         }
 
@@ -33,27 +34,32 @@ namespace StreamDeckVSC
         {
             clients.Remove(connection.ConnectionInfo.Id);
 
-            ActivateConnectedClient(connection);
+            ActivateConnectedClient();
         }
 
         private void OnConnected(IWebSocketConnection connection)
         {
             clients[connection.ConnectionInfo.Id] = new Client(connection);
 
-            ActivateConnectedClient(connection);
+            ActivateConnectedClient();
         }
 
-        private void ActivateConnectedClient(IWebSocketConnection connection)
+        private void ActivateConnectedClient()
         {
-            if (clients.Count == 1 && connection.ConnectionInfo.Headers.TryGetValue("X-VSSessionID", out var sessionId))
+            if (clients.Count == 1)
             {
-                SetCurrentClient(connection.ConnectionInfo.Id, sessionId);
+                var client = clients.First().Value;
+
+                if (client.Connection.ConnectionInfo.Headers.TryGetValue("X-VSSessionID", out var sessionId))
+                {
+                    SetActiveSession(client.Connection.ConnectionInfo.Id, sessionId);
+                }
             }
         }
 
-        private void HandleMessages(IWebSocketConnection connection, string rawMessage)
+        private void OnMessage(IWebSocketConnection connection, string rawMessage)
         {
-            Logger.Instance.LogMessage(TracingLevel.INFO, $"Received message {rawMessage}");
+            Logger.Instance.LogMessage(TracingLevel.INFO, $"{rawMessage}");
 
             var message = JsonConvert.DeserializeObject<Message>(rawMessage);
 
@@ -63,12 +69,12 @@ namespace StreamDeckVSC
                 {
                     var changeActiveSession = JsonConvert.DeserializeObject<ChangeActiveSessionMessage>(message.Data);
 
-                    SetCurrentClient(connection.ConnectionInfo.Id, changeActiveSession.SessionId);
+                    SetActiveSession(connection.ConnectionInfo.Id, changeActiveSession.SessionId);
                 }
             }
         }
 
-        private void SetCurrentClient(Guid clientId, string sessionId)
+        private void SetActiveSession(Guid clientId, string sessionId)
         {
             CurrentClient = clients[clientId];
 

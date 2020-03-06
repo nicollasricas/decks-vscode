@@ -4,7 +4,7 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    [PluginActionId(Program.UUID + ".insertsnippet")]
+    [PluginActionId("com.nicollasr.streamdeckvsc.insertsnippet")]
     public class InsertSnippetKey : KeyBase<InsertSnippetSettings>
     {
         public InsertSnippetKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
