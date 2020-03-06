@@ -105,3 +105,7 @@ function saveSettings() {
     );
   }
 }
+
+function openGettingStarted() {
+  window.xtWindow = window.open("https://github.com/nicollasricas/streamdeckvsc#getting-started", "Getting started");
+}

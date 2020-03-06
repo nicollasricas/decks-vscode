@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -14,25 +14,10 @@
   </head>
   <body>
     <div class="sdpi-wrapper">
-      <details>
-        <summary>REQUIREMENTS</summary>
-        <p>
-          For this plugin to work you need to install "Stream Deck for Visual
-          Studio Code" from your vscode marketplace.
-        </p>
-        <a
-          href="https://marketplace.visualstudio.com/items?itemName=nicollasr.vscode-streamdeck"
-          target="blank"
-        >
-          Download "Stream Deck for Visual Studio Code"
-        </a>
-        <a
-          href="https://code.visualstudio.com/docs/editor/extension-gallery"
-          target="blank"
-        >
-          How to install extensions
-        </a>
-      </details>
+      <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-item-value" onclick="openGettingStarted()">Getting Started</button>
+      </div>
 
       <div class="sdpi-item">
         <div class="sdpi-item-label">Language ID</div>
@@ -40,10 +25,7 @@
       </div>
 
       <div class="sdpi-item">
-        <a
-          href="https://code.visualstudio.com/docs/languages/identifiers"
-          target="blank"
-        >
+        <a href="https://code.visualstudio.com/docs/languages/identifiers" target="blank">
           Language Identifiers
         </a>
       </div>

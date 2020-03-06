@@ -14,25 +14,10 @@
   </head>
   <body>
     <div class="sdpi-wrapper">
-      <details>
-        <summary>REQUIREMENTS</summary>
-        <p>
-          For this plugin to work you need to install "Stream Deck for Visual
-          Studio Code" from your vscode marketplace.
-        </p>
-        <a
-          href="https://marketplace.visualstudio.com/items?itemName=nicollasr.vscode-streamdeck"
-          target="blank"
-        >
-          Download "Stream Deck for Visual Studio Code"
-        </a>
-        <a
-          href="https://code.visualstudio.com/docs/editor/extension-gallery"
-          target="blank"
-        >
-          How to install extensions
-        </a>
-      </details>
+      <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-item-value" onclick="openGettingStarted()">Getting Started</button>
+      </div>
 
       <div class="sdpi-item">
         <div class="sdpi-item-label">Name</div>
@@ -51,12 +36,7 @@
 
       <div class="sdpi-item">
         <div class="sdpi-item-label">Working Directory</div>
-        <input
-          class="sdpi-item-value"
-          type="text"
-          id="workingDirectory"
-          value=""
-        />
+        <input class="sdpi-item-value" type="text" id="workingDirectory" value="" />
       </div>
 
       <div type="checkbox" class="sdpi-item">
@@ -64,9 +44,7 @@
         <div class="sdpi-item-value">
           <div class="sdpi-item-child">
             <input id="preserveFocus" type="checkbox" value="true" />
-            <label for="preserveFocus" class="sdpi-item-label"
-              ><span></span
-            ></label>
+            <label for="preserveFocus" class="sdpi-item-label"><span></span></label>
           </div>
         </div>
       </div>
