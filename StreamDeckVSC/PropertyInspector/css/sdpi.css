@@ -28,9 +28,8 @@ html {
 
 html,
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 9pt;
   background-color: var(--sdpi-bgcolor);
   color: #9a9a9a;
@@ -329,6 +328,11 @@ ol.sdpi-item-value {
   -webkit-padding-start: 1em;
   width: var(--sdpi-width);
   text-align: center;
+}
+
+.sdpi-info-button {
+  width: 100%;
+  text-transform: uppercase;
 }
 
 table > caption {
@@ -1045,9 +1049,8 @@ h1 {
 }
 
 ::-webkit-datetime-edit {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: url(elg_calendar_inv.svg) no-repeat left center;
   padding-right: 1em;
   padding-left: 25px;
