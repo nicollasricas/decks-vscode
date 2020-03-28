@@ -25,9 +25,19 @@ In Visual Studio Code open _File->Preferences->Keyboard Shortcuts_, find the com
 
 ## Settings (Optional)
 
-You can change the IP and port to the message server in:
+You can change the IP and port to the message server in the _settings.ini_ file.
 
-_%appdata%\Elgato\StreamDeck\Plugins\com.nicollasr.streamdeckvsc.sdPlugin\appsettings.json_
+    [general]
+    host=127.0.0.1
+    port=48969
+
+#### Windows
+
+_%appdata%\Elgato\StreamDeck\Plugins\com.nicollasr.streamdeckvsc.sdPlugin\settings.ini_
+
+#### Mac
+
+_~/Library/Application Support/com.elgato.StreamDeck/Plugins/com.nicollasr.streamdeckvsc.mac.sdPlugin/settings.ini_
 
 **Don't forget to change it in Visual Studio Code settings or you won't be able to connect and use the available features.**
 
