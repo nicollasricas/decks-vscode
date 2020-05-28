@@ -12,7 +12,7 @@ namespace StreamDeckVSC
     {
         private readonly WebSocketServer server;
 
-        private static readonly Dictionary<Guid, Client> clients = new Dictionary<Guid, Client>();
+        private static readonly Dictionary<Guid, Client> connections = new Dictionary<Guid, Client>();
 
         public static Client CurrentClient { get; private set; }
 
@@ -32,23 +32,23 @@ namespace StreamDeckVSC
 
         private void OnDisconnected(IWebSocketConnection connection)
         {
-            clients.Remove(connection.ConnectionInfo.Id);
+            connections.Remove(connection.ConnectionInfo.Id);
 
-            ActivateConnectedClient();
+            TryActivateRemainingClient();
         }
 
         private void OnConnected(IWebSocketConnection connection)
         {
-            clients[connection.ConnectionInfo.Id] = new Client(connection);
+            connections[connection.ConnectionInfo.Id] = new Client(connection);
 
-            ActivateConnectedClient();
+            TryActivateRemainingClient();
         }
 
-        private void ActivateConnectedClient()
+        private void TryActivateRemainingClient()
         {
-            if (clients.Count == 1)
+            if (connections.Count == 1)
             {
-                var client = clients.First().Value;
+                var client = connections.First().Value;
 
                 if (client.Connection.ConnectionInfo.Headers.TryGetValue("X-VSSessionID", out var sessionId))
                 {
@@ -76,11 +76,11 @@ namespace StreamDeckVSC
 
         private void SetActiveSession(Guid clientId, string sessionId)
         {
-            CurrentClient = clients[clientId];
+            CurrentClient = connections[clientId];
 
             var activeSessionChanged = new ActiveSessionChangedMessage(sessionId);
 
-            foreach (var client in clients)
+            foreach (var client in connections)
             {
                 client.Value.Send(activeSessionChanged);
             }

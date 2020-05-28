@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>com.nicollasr.streamdeckvsc.openfolder PI</title>
+    <link rel="stylesheet" href="css/sdpi.css" />
+    <script src="js/pi.js"></script>
+  </head>
+  <body>
+    <div class="sdpi-wrapper">
+      <div class="sdpi-item">
+        <div class="sdpi-item-label empty"></div>
+        <button class="sdpi-info-button" onclick="openGettingStarted()">Getting Started</button>
+      </div>
+
+      <div class="sdpi-item">
+        <div class="sdpi-item-label">Path</div>
+        <input class="sdpi-item-value" type="text" id="path" value="" />
+      </div>
+
+      <div type="checkbox" class="sdpi-item">
+        <div class="sdpi-item-label">New Window</div>
+        <div class="sdpi-item-value">
+          <div class="sdpi-item-child">
+            <input id="newWindow" type="checkbox" value="true" />
+            <label for="newWindow" class="sdpi-item-label"><span></span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sdpi-info-label hidden" style="top: -1000;" value=""></div>
+  </body>
+</html>

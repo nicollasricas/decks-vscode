@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.2] - 2020-05-28
+
+### Added
+
+- Added open folder action.
+
+### Changed
+
+- Fixed macOS configuration default values loading.
+
 ## [4.1.2] - 2020-03-02
+
+### Added
 
 - Mac OS support
 

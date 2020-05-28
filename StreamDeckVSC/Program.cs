@@ -1,5 +1,7 @@
-﻿using BarRaider.SdTools;
-using Config.Net;
+﻿using System;
+using System.IO;
+using BarRaider.SdTools;
+using Microsoft.Extensions.Configuration;
 
 namespace StreamDeckVSC
 {
@@ -9,11 +11,15 @@ namespace StreamDeckVSC
 
         private static void Main(string[] args)
         {
-            var options = new ConfigurationBuilder<IProgramOptions>()
-                .UseIniFile("settings.ini")
+            var configuration = new Configuration();
+
+            var configurationRoot = new ConfigurationBuilder()
+                .AddIniFile(Path.Combine(AppContext.BaseDirectory, "settings.ini"), true, false)
                 .Build();
 
-            StartMessageServer(options);
+            configurationRoot.GetSection("general").Bind(configuration);
+
+            StartMessageServer(configuration);
 
 #if DEBUG
             //System.Console.ReadLine();
@@ -26,9 +32,9 @@ namespace StreamDeckVSC
 
         private static void ConnectPlugin(string[] args) => SDWrapper.Run(args);
 
-        private static void StartMessageServer(IProgramOptions options)
+        private static void StartMessageServer(Configuration configuration)
         {
-            messageServer = new MessageServer(options.Host, options.Port);
+            messageServer = new MessageServer(configuration.Host, configuration.Port);
             messageServer.Start();
         }
 

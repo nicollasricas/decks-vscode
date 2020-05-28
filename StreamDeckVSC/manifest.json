@@ -64,6 +64,19 @@
       "SupportedInMultiActions": true,
       "PropertyInspectorPath": "PropertyInspector/CreateTerminal.html",
       "UUID": "com.nicollasr.streamdeckvsc.createterminal"
+    },
+    {
+      "Icon": "Images/VisualStudioCode",
+      "Name": "Open Folder",
+      "States": [
+        {
+          "Image": "Images/VisualStudioCode"
+        }
+      ],
+      "Tooltip": "Open a folder or workspace.",
+      "SupportedInMultiActions": true,
+      "PropertyInspectorPath": "PropertyInspector/OpenFolder.html",
+      "UUID": "com.nicollasr.streamdeckvsc.openfolder"
     }
   ],
   "SDKVersion": 2,
@@ -75,7 +88,7 @@
   "Category": "Visual Studio Code",
   "CategoryIcon": "Images/VisualStudioCode",
   "URL": "https://github.com/nicollasricas/streamdeckvsc",
-  "Version": "4.1.3",
+  "Version": "5.1.2",
   "OS": [
     {
       "Platform": "windows",
