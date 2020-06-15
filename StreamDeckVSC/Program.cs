@@ -11,23 +11,30 @@ namespace StreamDeckVSC
 
         private static void Main(string[] args)
         {
-            var configuration = new Configuration();
+            try
+            {
+                var configuration = new Configuration();
 
-            var configurationRoot = new ConfigurationBuilder()
-                .AddIniFile(Path.Combine(AppContext.BaseDirectory, "settings.ini"), true, false)
-                .Build();
+                var configurationRoot = new ConfigurationBuilder()
+                    .AddIniFile(Path.Combine(AppContext.BaseDirectory, "settings.ini"), true, false)
+                    .Build();
 
-            configurationRoot.GetSection("general").Bind(configuration);
+                configurationRoot.GetSection("general").Bind(configuration);
 
-            StartMessageServer(configuration);
+                StartMessageServer(configuration);
 
 #if DEBUG
-            //System.Console.ReadLine();
+                //System.Console.ReadLine();
 #endif
 
-            ConnectPlugin(args);
+                ConnectPlugin(args);
 
-            StopMessageServer();
+                StopMessageServer();
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.LogMessage(TracingLevel.ERROR, ex.Message);
+            }
         }
 
         private static void ConnectPlugin(string[] args) => SDWrapper.Run(args);
