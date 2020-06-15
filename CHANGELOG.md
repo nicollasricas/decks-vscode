@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.3] - 2020-05-15
+
+### Changed
+
+- Fixed macOS connection lost
+
 ## [5.1.2] - 2020-05-28
 
 ### Added
